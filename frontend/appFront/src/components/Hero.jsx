@@ -1,5 +1,5 @@
 import HeroCardStack from "./HeroCardStack"
-
+import Stat from "./Stat"
 export default function Hero() {
     return (
         <>
@@ -28,6 +28,16 @@ export default function Hero() {
                 </div>
             </div >
 
+            {/* stats bar*/}
+            <div className="bg-[#2c3e6b] flex py-10">
+                <Stat value="2,400+" label="Artisan Listings" />
+                <div className="border-r border-[#44557d]"></div>
+                <Stat value="18" label="States Covered" />
+                <div className="border-r border-[#44557d]"></div>
+                <Stat value="340+" label="Institutional Buyers" />
+                <div className="border-r border-[#44557d]"></div>
+                <Stat value="0%" label="Commission" />
+            </div>
         </>
     )
 }

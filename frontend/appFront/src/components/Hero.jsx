@@ -1,10 +1,11 @@
+import HeroCardStack from "./HeroCardStack"
 
 export default function Hero() {
     return (
         <>
             <div className="bg-[#F5F1EA] h-auto px- m-auto pt-20 pb-16 flex justify-center">
                 {/*left*/}
-                <div className="pr-80">
+                <div className="">
                     <div className="border border-indigo-600 rounded-lg bg-[#eff0f8] inline-flex px-4">✦ AI-Powered · Zero Commission · Pan India</div>
 
                     <div className="pt-6">
@@ -21,8 +22,12 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div>card</div>
+                <div className="pl-20">
+                    {/* right*/}
+                    <HeroCardStack />
+                </div>
             </div >
+
         </>
     )
 }

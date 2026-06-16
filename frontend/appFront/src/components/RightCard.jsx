@@ -3,7 +3,7 @@ import AIimg from '../assets/ai.png'
 export default function RightCard() {
     return (
         <>
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 py-16 lg:py-20">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 py-16 lg:py-16">
                 <div className="max-w-lg">
                     <h2 className="text-3xl lg:text-4xl font-extrabold font-serif">
                         How <span className="italic text-[#F0C040]">AI</span> helps

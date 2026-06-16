@@ -13,7 +13,7 @@ function About() {
             <Navbar />
             {/*top hero section*/}
             <div className="h-auto bg-[#2c3e6b] flex flex-col items-center">
-                <span className="font-serif text-6xl font-bold text-white pt-10 pb-8">
+                <span className="font-serif text-6xl font-bold text-white px-4 pt-14 pb-6">
                     Built to&nbsp;
                     <span className="italic text-[#F0C040]">bridge</span>
                     &nbsp;the gap
@@ -21,7 +21,7 @@ function About() {
                 <p className="text-[#8799bb] text-xl/8 max-w-2xl text-center pb-20">India's artisans create some of the finest handcrafted products in the world — but most of them never find the buyers they deserve. Shilp Setu exists to change that.</p>
             </div>
 
-            {/*bottom card section*/}
+            {/*middle card section*/}
             <div className="bg-[#f4f0eb]">
                 <LeftCard />
                 <RightCard />

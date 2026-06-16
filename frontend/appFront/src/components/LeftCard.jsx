@@ -2,7 +2,7 @@ import WoolImg from '../assets/wool.png'
 export default function LeftCard() {
     return (
         <>
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 py-16 lg:py-20">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 py-16 lg:py-16">
 
                 <div className="w-full max-w-[500px] h-[250px] lg:h-[300px] border border-[#ddd3c4] rounded-xl bg-[#efe8da] flex items-center justify-center">
                     <img

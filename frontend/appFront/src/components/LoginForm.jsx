@@ -1,4 +1,4 @@
-export default function LoginForm() {
+export default function LoginForm({ role, setRole }) {
     return (
         <>
             <div className="w-full max-w-md font-serif  flex flex-col justify-center items-center m-auto px-4 py-8">
@@ -8,8 +8,16 @@ export default function LoginForm() {
                 </div>
 
                 <div className="tab-row flex flex-row border border-[#c7aa84] rounded-lg w-full items-center font-sans mb-4 overflow-hidden">
-                    <button className=" w-1/2 bg-[#2c3e6b] text-white py-2 ">Artisan Login</button>
-                    <button className=" w-1/2 py-2 ">Buyer Login</button>
+                    <button className=" w-1/2 bg-[#2c3e6b] text-white py-2 "
+                        onClick={() => setRole("artisan")}
+                    >
+                        Artisan Login
+                    </button>
+                    <button className=" w-1/2 py-2 "
+                        onClick={() => setRole("buyer")}
+                    >
+                        Buyer Login
+                    </button>
                 </div>
                 <div className="form font-sans w-full">
                     <form action="">

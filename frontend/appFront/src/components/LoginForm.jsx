@@ -1,9 +1,14 @@
+import { useState } from "react"
 import Button from "./ui/Button"
+import Input from "./ui/Input"
 
 export default function LoginForm({ role, setRole }) {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
     return (
         <>
-            <div className="w-full max-w-md font-serif  flex flex-col justify-center items-center m-auto px-4 py-8">
+            <div className="w-full max-w-md font-serif flex flex-col justify-center items-center m-auto px-4 py-8">
                 <div className="">
                     <h2 className="text-5xl font-black pb-4">Welcome back</h2>
                     <p className="text-lg pb-4 font-sans font-thin">Sign in to continue your artisan journey</p>
@@ -26,25 +31,34 @@ export default function LoginForm({ role, setRole }) {
                         Buyer Login
                     </Button>
                 </div>
-                <div className="form font-sans w-full">
-                    <form action="">
-                        <label htmlFor="email">Email address</label><br />
-                        <input type="email" id="email" className="border border-[#c7aa84] rounded-lg leading-3 w-full my-2 px-4 py-3" />
-                        <br />
-                        <label htmlFor="pswd">Password</label><br />
-                        <input type="password" id="pswd" className="border border-[#c7aa84] rounded-lg leading-3 w-full my-2 px-4 py-3" />
 
-                        <Button variant="primary" size="lg" className="w-full mt-2">
-                            Sign-in
-                        </Button>
-                    </form>
+                <div className="form font-sans w-full">
+                    <Input
+                        label="Email address"
+                        type="email"
+                        placeholder="you@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+
+                    <Input
+                        label="Password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+
+                    <Button type="button" variant="primary" size="lg" className="w-full mt-2">
+                        Sign-in
+                    </Button>
                 </div>
 
                 <div className="w-full text-[#c7aa84] font-sans flex flex-col justify-center items-center pt-8">
                     <span>or</span>
                     <span>Don't have an account?&nbsp;<a href="" className="text-[#2c3e6b]">Request access</a></span>
                 </div>
-            </div >
+            </div>
         </>
     )
 }

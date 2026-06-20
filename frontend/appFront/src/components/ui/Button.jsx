@@ -1,6 +1,6 @@
 // Reusable Button component
 
-export default function Button({ variant = "primary", size = "md", disabled = false, onClick, className = "", children }) {
+export default function Button({ variant = "primary", size = "md", disabled = false, onClick, className = "", type = "button", children }) {
 
     const baseStyles = "font-semibold rounded-lg transition-colors";
 
@@ -21,6 +21,7 @@ export default function Button({ variant = "primary", size = "md", disabled = fa
 
     return (
         <button
+            type={type}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
             className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${disabled ? disabledStyles : ""} ${className}`}

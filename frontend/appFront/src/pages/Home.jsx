@@ -1,7 +1,9 @@
+import { useState } from "react"
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Card from '../components/Card'
+import Modal from '../components/ui/Modal'
 
 const products = [
     { emoji: "🧣", bg: "bg-orange-100", region: "Kashmir", title: "Hand-woven Woolen Shawl", material: "Wool", size: "180×90 cm", price: "₹1,200", moq: 50, ai: true },
@@ -13,12 +15,13 @@ const products = [
 ]
 
 function Home() {
+    const [selectedProduct, setSelectedProduct] = useState(null)
+
     return (
         <>
             <Navbar />
             <Hero />
 
-            {/* catalog section */}
             <div className="max-w-7xl mx-auto px-6 py-16">
                 <h2 className="text-3xl font-serif font-extrabold mb-8">
                     Browse the <span className="italic text-[#e8a020]">collection</span>
@@ -26,10 +29,29 @@ function Home() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {products.map((p, i) => (
-                        <Card key={i} {...p} />
+                        <div key={i} onClick={() => setSelectedProduct(p)}>
+                            <Card {...p} />
+                        </div>
                     ))}
                 </div>
             </div>
+
+            <Modal
+                isOpen={selectedProduct !== null}
+                onClose={() => setSelectedProduct(null)}
+                title={selectedProduct?.title}
+            >
+                {selectedProduct && (
+                    <div>
+                        <div className={`h-40 ${selectedProduct.bg} rounded-xl flex items-center justify-center text-5xl mb-4`}>
+                            {selectedProduct.emoji}
+                        </div>
+                        <p className="text-[#6b5f4e] mb-2">Region: {selectedProduct.region}</p>
+                        <p className="text-[#6b5f4e] mb-2">Material: {selectedProduct.material}</p>
+                        <p className="font-serif font-bold text-xl text-[#2c3e6b]">{selectedProduct.price} / pc</p>
+                    </div>
+                )}
+            </Modal>
 
             <Footer />
         </>

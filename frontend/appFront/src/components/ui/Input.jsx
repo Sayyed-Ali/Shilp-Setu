@@ -1,12 +1,5 @@
-/**
- * Reusable Input component
- * @param {string} label - text label shown above the input
- * @param {string} type - input type, e.g. "text", "email", "password"
- * @param {string} placeholder - placeholder text
- * @param {string} value - controlled input value
- * @param {function} onChange - change handler
- * @param {string} error - error message to show below input, if any
- */
+// Reusable Input component
+
 export default function Input({ label, type = "text", placeholder, value, onChange, error }) {
 
     return (

@@ -1,3 +1,5 @@
+import Button from "./ui/Button"
+
 export default function LoginForm({ role, setRole }) {
     return (
         <>
@@ -8,16 +10,21 @@ export default function LoginForm({ role, setRole }) {
                 </div>
 
                 <div className="tab-row flex flex-row border border-[#c7aa84] rounded-lg w-full items-center font-sans mb-4 overflow-hidden">
-                    <button className=" w-1/2 bg-[#2c3e6b] text-white py-2 "
+                    <Button
+                        variant={role === "artisan" ? "primary" : "ghost"}
+                        className="w-1/2 rounded-none"
                         onClick={() => setRole("artisan")}
                     >
                         Artisan Login
-                    </button>
-                    <button className=" w-1/2 py-2 "
+                    </Button>
+
+                    <Button
+                        variant={role === "buyer" ? "primary" : "ghost"}
+                        className="w-1/2 rounded-none"
                         onClick={() => setRole("buyer")}
                     >
                         Buyer Login
-                    </button>
+                    </Button>
                 </div>
                 <div className="form font-sans w-full">
                     <form action="">
@@ -27,7 +34,9 @@ export default function LoginForm({ role, setRole }) {
                         <label htmlFor="pswd">Password</label><br />
                         <input type="password" id="pswd" className="border border-[#c7aa84] rounded-lg leading-3 w-full my-2 px-4 py-3" />
 
-                        <button className="w-full bg-[#2c3e6b] rounded-lg mt-2 text-white px-4 py-3">Sign-in</button>
+                        <Button variant="primary" size="lg" className="w-full mt-2">
+                            Sign-in
+                        </Button>
                     </form>
                 </div>
 

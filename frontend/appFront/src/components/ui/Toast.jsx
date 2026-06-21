@@ -2,9 +2,12 @@ import { createContext, useContext, useState, useCallback } from "react"
 
 const ToastContext = createContext(null)
 
-/*
- * Gives any child component access to showToast() via useToast()
+/**
+ * ToastProvider — wrap your app with this once, in App.jsx
+ * Gives any nested component access to showToast() via the useToast() hook
+ * @param {node} children - app content to wrap
  */
+
 export function ToastProvider({ children }) {
     const [toast, setToast] = useState(null)
 

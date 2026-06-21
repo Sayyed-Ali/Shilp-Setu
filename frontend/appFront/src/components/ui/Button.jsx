@@ -1,4 +1,13 @@
-// Reusable Button component
+/**
+ * Reusable Button component
+ * @param {string} variant - "primary" | "secondary" | "outline" | "ghost"
+ * @param {string} size - "sm" | "md" | "lg"
+ * @param {boolean} disabled - disables the button and applies disabled styles
+ * @param {function} onClick - click handler
+ * @param {string} className - extra tailwind classes to merge on top of defaults
+ * @param {string} type - native button type, "button" | "submit" | "reset"
+ * @param {node} children - button label/content
+ */
 
 export default function Button({ variant = "primary", size = "md", disabled = false, onClick, className = "", type = "button", children }) {
 

@@ -1,4 +1,9 @@
-// text - optional text to show below spinner
+/**
+ * Reusable Loader / spinner component
+ * @param {string} size - "sm" | "md" | "lg"
+ * @param {string} text - optional text shown below the spinner
+ */
+
 export default function Loader({ size = "md", text }) {
 
     const sizes = {

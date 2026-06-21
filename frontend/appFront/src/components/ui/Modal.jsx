@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react"
 
 /**
  * Reusable Modal component
- * isOpen - controls whether modal is visible
- * onClose - called when modal should close
- * title - modal heading
- * children - modal body content
+ * @param {boolean} isOpen - controls whether modal is visible
+ * @param {function} onClose - called when modal should close (escape key, backdrop click, or close button)
+ * @param {string} title - modal heading shown at top
+ * @param {node} children - modal body content
  */
 
 export default function Modal({ isOpen, onClose, title, children }) {

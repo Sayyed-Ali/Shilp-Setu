@@ -1,4 +1,12 @@
-// Reusable Input component
+/**
+ * Reusable Input component
+ * @param {string} label - text label shown above the input
+ * @param {string} type - input type, e.g. "text", "email", "password"
+ * @param {string} placeholder - placeholder text shown when empty
+ * @param {string} value - controlled input value
+ * @param {function} onChange - change handler, called with the native event
+ * @param {string} error - error message shown below input; also turns border red if present
+ */
 
 export default function Input({ label, type = "text", placeholder, value, onChange, error }) {
 

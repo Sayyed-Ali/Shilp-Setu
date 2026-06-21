@@ -2,8 +2,7 @@ import { createContext, useContext, useState, useCallback } from "react"
 
 const ToastContext = createContext(null)
 
-/**
- * Wrap your app with this once, in App.jsx
+/*
  * Gives any child component access to showToast() via useToast()
  */
 export function ToastProvider({ children }) {

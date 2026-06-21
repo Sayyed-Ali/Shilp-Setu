@@ -10,7 +10,7 @@ export default function Loader({ size = "md", text }) {
     return (
         <div className="flex flex-col items-center justify-center gap-3">
             <div
-                className={`${sizes[size]} border-[#ddd3c4] border-t-[#2c3e6b] rounded-full animate-spin`}
+                className={`${sizes[size]} border-[#ddd3c4] dark:border-[#2a3552] border-t-[#2c3e6b] dark:border-t-indigo-400 rounded-full animate-spin`}
             ></div>
 
             {text && (

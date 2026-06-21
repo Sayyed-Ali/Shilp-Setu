@@ -47,14 +47,14 @@ export default function Modal({ isOpen, onClose, title, children }) {
             <div
                 ref={modalRef}
                 tabIndex={-1}
-                onClick={(e) => e.stopPropagation()} // stop clicks inside from closing it
-                className="bg-white rounded-2xl p-6 w-full max-w-md outline-none"
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white dark:bg-[#1a2238] rounded-2xl p-6 w-full max-w-md outline-none"
             >
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="font-serif font-bold text-xl">{title}</h2>
+                    <h2 className="font-serif font-bold text-xl dark:text-white">{title}</h2>
                     <button
                         onClick={onClose}
-                        className="text-[#6b5f4e] hover:text-[#1e1a14] text-2xl leading-none"
+                        className="text-[#6b5f4e] dark:text-gray-400 hover:text-[#1e1a14] dark:hover:text-white text-2xl leading-none"
                     >
                         &times;
                     </button>

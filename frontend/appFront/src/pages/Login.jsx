@@ -17,7 +17,7 @@ function Login() {
                 </div>
 
                 {/*Right side - form */}
-                <div className="flex flex-1 bg-[#F5F1EA] justify-center items-center">
+                <div className="flex flex-1 bg-[#F5F1EA] dark:bg-[#0f1626] justify-center items-center">
                     <LoginForm role={role} setRole={setRole} />
                 </div>
             </div>

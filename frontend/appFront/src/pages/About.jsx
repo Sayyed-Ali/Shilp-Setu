@@ -22,14 +22,14 @@ function About() {
             </div>
 
             {/*middle card section*/}
-            <div className="bg-[#f4f0eb]">
+            <div className="bg-[#f4f0eb] dark:bg-[#0f1626]">
                 <LeftCard />
                 <RightCard />
             </div>
 
             {/*bottom quality cards section*/}
-            <div className="bg-[#efe8da] flex flex-col justify-around items-center p-10 pb-5">
-                <span className="text-3xl lg:text-4xl font-extrabold font-serif pb-10">What we stand for</span>
+            <div className="bg-[#efe8da] dark:bg-[#0a0f1f] flex flex-col justify-around items-center p-10 pb-5">
+                <span className="text-3xl lg:text-4xl font-extrabold font-serif pb-10 dark:text-white">What we stand for</span>
 
                 <div className="cards flex flex-col lg:flex-row gap-10">
                     <QualityCard icon={<FaHandshake />} title="Zero Commission" text="We never take a cut from artisan earnings. Every rupee a buyer pays goes directly to the craft collective." />

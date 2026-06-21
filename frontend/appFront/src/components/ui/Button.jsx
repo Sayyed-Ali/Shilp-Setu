@@ -7,8 +7,8 @@ export default function Button({ variant = "primary", size = "md", disabled = fa
     const variants = {
         primary: "bg-[#2c3e6b] text-white hover:bg-[#1a2645]",
         secondary: "bg-[#c4502c] text-white hover:bg-[#a83c20]",
-        outline: "border-2 border-[#ddd3c4] text-[#1e1a14] hover:border-[#2c3e6b]",
-        ghost: "bg-transparent text-[#1e1a14] hover:bg-[#efe8da]",
+        outline: "border-2 border-[#ddd3c4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white hover:border-[#2c3e6b] dark:hover:border-indigo-400",
+        ghost: "bg-transparent text-[#1e1a14] dark:text-gray-300 hover:bg-[#efe8da] dark:hover:bg-[#1a2238]",
     };
 
     const sizes = {

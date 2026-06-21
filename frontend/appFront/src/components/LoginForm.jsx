@@ -21,11 +21,11 @@ export default function LoginForm({ role, setRole }) {
         <>
             <div className="w-full max-w-md font-serif flex flex-col justify-center items-center m-auto px-4 py-8">
                 <div className="">
-                    <h2 className="text-5xl font-black pb-4">Welcome back</h2>
-                    <p className="text-lg pb-4 font-sans font-thin">Sign in to continue your artisan journey</p>
+                    <h2 className="text-5xl font-black pb-4 dark:text-white">Welcome back</h2>
+                    <p className="text-lg pb-4 font-sans font-thin dark:text-gray-400">Sign in to continue your artisan journey</p>
                 </div>
 
-                <div className="tab-row flex flex-row border border-[#c7aa84] rounded-lg w-full items-center font-sans mb-4 overflow-hidden">
+                <div className="tab-row flex flex-row border border-[#c7aa84] dark:border-[#2a3552] rounded-lg w-full items-center font-sans mb-4 overflow-hidden">
                     <Button
                         variant={role === "artisan" ? "primary" : "ghost"}
                         className="w-1/2 rounded-none"
@@ -71,8 +71,8 @@ export default function LoginForm({ role, setRole }) {
                     )}
                 </div>
 
-                <div className="w-full text-[#c7aa84] font-sans flex flex-col justify-center items-center pt-8">
-                    <span>or</span>
+                <div className="w-full text-[#c7aa84] dark:text-gray-500 font-sans flex flex-col justify-center items-center pt-8">
+                    <span className="text-[#c7aa84] dark:text-gray-500">or</span>
                     <span>Don't have an account?&nbsp;<a href="" className="text-[#2c3e6b]">Request access</a></span>
                 </div>
             </div>

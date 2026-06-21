@@ -5,16 +5,15 @@ export default function RightCard() {
         <>
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-8 py-16 lg:py-16">
                 <div className="max-w-lg">
-                    <h2 className="text-3xl lg:text-4xl font-extrabold font-serif">
+                    <h2 className="text-3xl lg:text-4xl font-extrabold font-serif dark:text-white">
                         How <span className="italic text-[#F0C040]">AI</span> helps
                     </h2>
-
-                    <p className="text-[#6b5f4e] text-base lg:text-xl leading-7 lg:leading-8 pt-6">
+                    <p className="text-[#6b5f4e] dark:text-gray-400 text-base lg:text-xl leading-7 lg:leading-8 pt-6">
                         Most artisan coordinators aren't trained copywriters. Shilp Setu uses Gemini Vision AI to generate professional product descriptions from a single uploaded photo — in English and Hindi — so every listing looks polished without requiring writing skills from the admin.
                     </p>
                 </div>
 
-                <div className="w-full max-w-[500px] h-[250px] lg:h-[300px] border border-[#ddd3c4] rounded-xl bg-[#efe8da] flex items-center justify-center">
+                <div className="w-full max-w-[500px] h-[250px] lg:h-[300px] border border-[#ddd3c4] dark:border-[#2a3552] rounded-xl bg-[#efe8da] dark:bg-[#1a2238] flex items-center justify-center">
                     <img
                         src={AIimg}
                         alt="Handwoven wool craft"

@@ -22,8 +22,8 @@ function Home() {
             <Navbar />
             <Hero />
 
-            <div className="max-w-7xl mx-auto px-6 py-16">
-                <h2 className="text-3xl font-serif font-extrabold mb-8">
+            <div className="max-w-7xl mx-auto px-6 py-16 dark:bg-[#0f1626]">
+                <h2 className="text-3xl font-serif font-extrabold mb-8 dark:text-white">
                     Browse the <span className="italic text-[#e8a020]">collection</span>
                 </h2>
 
@@ -46,8 +46,8 @@ function Home() {
                         <div className={`h-40 ${selectedProduct.bg} rounded-xl flex items-center justify-center text-5xl mb-4`}>
                             {selectedProduct.emoji}
                         </div>
-                        <p className="text-[#6b5f4e] mb-2">Region: {selectedProduct.region}</p>
-                        <p className="text-[#6b5f4e] mb-2">Material: {selectedProduct.material}</p>
+                        <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Region: {selectedProduct.region}</p>
+                        <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Material: {selectedProduct.material}</p>
                         <p className="font-serif font-bold text-xl text-[#2c3e6b]">{selectedProduct.price} / pc</p>
                     </div>
                 )}

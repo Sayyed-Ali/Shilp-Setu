@@ -49,7 +49,7 @@ export default function LoginBanner({ role }) {
                             {content[role || "default"].title}
                         </h2>
 
-                        <p className="mt-6 text-lg lg:text-xl text-slate-200">
+                        <p className="mt-6 text-lg lg:text-xl text-slate-200 dark:text-slate-300">
                             {content[role || "default"].subtitle}
                         </p>
                     </motion.div>

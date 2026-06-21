@@ -7,11 +7,11 @@ function Dashboard() {
         <>
             <Navbar />
 
-            <div className="max-w-7xl mx-auto px-6 py-12">
-                <h1 className="text-3xl font-serif font-extrabold mb-1">
+            <div className="max-w-7xl mx-auto px-6 py-12 dark:bg-[#0f1626]">
+                <h1 className="text-3xl font-serif font-extrabold mb-1 dark:text-white">
                     Hello!, Admin
                 </h1>
-                <p className="text-[#6b5f4e] mb-8">
+                <p className="text-[#6b5f4e] dark:text-gray-400 mb-8">
                     Here's what's happening with your listings today.
                 </p>
 
@@ -24,9 +24,9 @@ function Dashboard() {
                 </div>
 
                 {/* placeholder for inquiry table - coming later */}
-                <div className="bg-white border border-[#ddd3c4] rounded-2xl p-6">
-                    <h2 className="font-semibold text-lg mb-2">Recent Inquiries</h2>
-                    <p className="text-[#6b5f4e] text-sm">
+                <div className="bg-white dark:bg-[#1a2238] border border-[#ddd3c4] dark:border-[#2a3552] rounded-2xl p-6">
+                    <h2 className="font-semibold text-lg mb-2 dark:text-white">Recent Inquiries</h2>
+                    <p className="text-[#6b5f4e] dark:text-gray-400 text-sm">
                         Inquiry tracking table will be built here once the backend is connected.
                     </p>
                 </div>

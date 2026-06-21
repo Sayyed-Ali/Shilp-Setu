@@ -2,7 +2,7 @@
 export default function Footer() {
     return (
         <>
-            <footer className="bg-[#1A2645]">
+            <footer className="bg-[#1A2645] dark:bg-[#0a0f1f]">
                 <div className="mx-auto flex justify-between px-12 py-8">
                     <div className="md:flex flex-col justify-center w-1/3">
                         <div className="text-yellow-200 font-bold text-2xl">Shilp Setu</div>

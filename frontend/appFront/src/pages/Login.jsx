@@ -21,8 +21,6 @@ function Login() {
                     <LoginForm role={role} setRole={setRole} />
                 </div>
             </div>
-
-            <Footer />
         </>
     )
 }

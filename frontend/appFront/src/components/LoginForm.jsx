@@ -1,8 +1,5 @@
 import { useState } from "react"
-import Button from "./ui/Button"
-import Input from "./ui/Input"
-import Loader from "./ui/Loader"
-import { useToast } from "./ui/Toast"
+import { Button, Input, Loader, useToast } from "../components/ui"
 
 export default function LoginForm({ role, setRole }) {
     const [email, setEmail] = useState("")

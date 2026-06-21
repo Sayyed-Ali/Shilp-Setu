@@ -12,7 +12,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className='border-b-2 dark:border-[#1f2a45] dark:bg-[#0f1626]'>
+            <div className='border-b-2 dark:border-[#1f2a45] dark:bg-[#0f1626] sticky top-0 z-50 bg-[#F5F1EA]'>
                 <nav className="navbar flex mt-4 pl-4 font-serif">
                     {/* Logo */}
                     <div className="flex items-center">

@@ -22,15 +22,15 @@ export default function Navbar() {
                     </div>
 
                     {/* Center links — hidden on mobile */}
-                    <ul className="hidden md:flex items-center gap-8 ml-10 list-none text-xl">
+                    <ul className="hidden lg:flex items-center gap-8 ml-10 list-none text-xl">
                         <li><a href="/" className="text-[#6B5F4E] hover:text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium transition-colors">Catalog</a></li>
                         <li><a href="/dashboard" className="text-[#6B5F4E] hover:text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium transition-colors">How it Works</a></li>
                         <li><a href="/about" className="text-[#6B5F4E] hover:text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium transition-colors">About</a></li>
                     </ul>
 
                     {/* Right side */}
-                    <div className="flex items-center gap-4 ml-auto mr-4">
-                        <div className='hidden md:flex items-center gap-2'>
+                    <div className="flex items-center gap-1 md:gap-4 ml-auto mr-4">
+                        <div className='hidden lg:flex items-center gap-2'>
                             <a href="/login" className='border-2 border-[#ddd3c4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white rounded-lg p-2 mr-3 px-6'>Admin login</a>
                             <a href="/catalog" className=' border-2 rounded-lg p-2 mr-3 bg-[#2c3e6b] text-white px-6'>Browse Crafts</a>
                         </div>
@@ -55,9 +55,10 @@ export default function Navbar() {
                             {theme === "light" ? <IoMoonOutline className="text-2xl text-[#2C3E6B]" /> : <IoSunnyOutline className="text-2xl text-yellow-400" />}
                         </button>
 
-                        {/* Hamburger — only on mobile */}
+                        {/* Hamburger — on mobile and tablet*/}
+                        {/* Hamburger — shown up to tablet (1024px) */}
                         <button
-                            className="md:hidden p-2 rounded-lg hover:bg-[#EFE8DA] transition-colors dark:text-white"
+                            className="lg:hidden p-2 rounded-lg hover:bg-[#EFE8DA] transition-colors dark:text-white"
                             onClick={() => setMenuOpen(!menuOpen)}
                         >
                             {menuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
@@ -66,7 +67,7 @@ export default function Navbar() {
                 </nav>
                 {/* MOBILE MENU — slides in when menuOpen is true */}
                 {menuOpen && (
-                    <div className="md:hidden bg-[#FDFAF5] dark:bg-[#0f1626] border-t border-[#DDD3C4] dark:border-[#1f2a45] px-6 py-4 flex flex-col gap-4 text-lg">
+                    <div className="lg:hidden bg-[#FDFAF5] dark:bg-[#0f1626] border-t border-[#DDD3C4] dark:border-[#1f2a45] px-6 py-4 flex flex-col gap-4 text-lg">
                         <a href="/" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>Catalog</a>
                         <a href="/about" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>For Buyers</a>
                         <a href="/dashboard" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>How it Works</a>

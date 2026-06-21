@@ -1,10 +1,16 @@
 import { useState } from "react"
 import Button from "./ui/Button"
 import Input from "./ui/Input"
+import { useToast } from "./ui/Toast"
 
 export default function LoginForm({ role, setRole }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const showToast = useToast()
+
+    function handleSignIn() {
+        showToast(`Signed in as ${role}!`, "success")
+    }
 
     return (
         <>
@@ -49,7 +55,7 @@ export default function LoginForm({ role, setRole }) {
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
-                    <Button type="button" variant="primary" size="lg" className="w-full mt-2">
+                    <Button type="button" variant="primary" size="lg" className="w-full mt-2" onClick={handleSignIn}>
                         Sign-in
                     </Button>
                 </div>

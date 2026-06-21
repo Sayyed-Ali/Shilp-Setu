@@ -19,41 +19,43 @@ function Home() {
 
     return (
         <>
-            <Navbar />
-            <Hero />
+            <div className="min-h-screen flex flex-col">
+                <Navbar />
+                <Hero />
 
-            <div className="max-w-7xl mx-auto px-6 py-16 dark:bg-[#0f1626]">
-                <h2 className="text-3xl font-serif font-extrabold mb-8 dark:text-white">
-                    Browse the <span className="italic text-[#e8a020]">collection</span>
-                </h2>
+                <div className="max-w-7xl mx-auto px-6 py-16 dark:bg-[#0f1626] flex-1">
+                    <h2 className="text-3xl font-serif font-extrabold mb-8 dark:text-white">
+                        Browse the <span className="italic text-[#e8a020]">collection</span>
+                    </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {products.map((p, i) => (
-                        <div key={i} onClick={() => setSelectedProduct(p)}>
-                            <Card {...p} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <Modal
-                isOpen={selectedProduct !== null}
-                onClose={() => setSelectedProduct(null)}
-                title={selectedProduct?.title}
-            >
-                {selectedProduct && (
-                    <div>
-                        <div className={`h-40 ${selectedProduct.bg} rounded-xl flex items-center justify-center text-5xl mb-4`}>
-                            {selectedProduct.emoji}
-                        </div>
-                        <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Region: {selectedProduct.region}</p>
-                        <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Material: {selectedProduct.material}</p>
-                        <p className="font-serif font-bold text-xl text-[#2c3e6b]">{selectedProduct.price} / pc</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {products.map((p, i) => (
+                            <div key={i} onClick={() => setSelectedProduct(p)}>
+                                <Card {...p} />
+                            </div>
+                        ))}
                     </div>
-                )}
-            </Modal>
+                </div>
 
-            <Footer />
+                <Modal
+                    isOpen={selectedProduct !== null}
+                    onClose={() => setSelectedProduct(null)}
+                    title={selectedProduct?.title}
+                >
+                    {selectedProduct && (
+                        <div>
+                            <div className={`h-40 ${selectedProduct.bg} rounded-xl flex items-center justify-center text-5xl mb-4`}>
+                                {selectedProduct.emoji}
+                            </div>
+                            <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Region: {selectedProduct.region}</p>
+                            <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Material: {selectedProduct.material}</p>
+                            <p className="font-serif font-bold text-xl text-[#2c3e6b]">{selectedProduct.price} / pc</p>
+                        </div>
+                    )}
+                </Modal>
+
+                <Footer />
+            </div>
         </>
     )
 }

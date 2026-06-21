@@ -6,3 +6,9 @@ body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     @apply bg-[#F5F1EA] dark:bg-[#0f1626];
 }
+
+html,
+body,
+#root {
+    height: 100%;
+}

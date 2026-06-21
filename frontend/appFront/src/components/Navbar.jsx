@@ -31,7 +31,7 @@ export default function Navbar() {
                     {/* Right side */}
                     <div className="flex items-center gap-1 md:gap-4 ml-auto mr-4">
                         <div className='hidden lg:flex items-center gap-2'>
-                            <a href="/login" className='border-2 border-[#ddd3c4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white rounded-lg p-2 mr-3 px-6'>Admin login</a>
+                            <a href="/login" className='border-2 border-[#ddd3c4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white rounded-lg p-2 mr-3 px-6'>Login</a>
                             <a href="/catalog" className=' border-2 rounded-lg p-2 mr-3 bg-[#2c3e6b] text-white px-6'>Browse Crafts</a>
                         </div>
 

@@ -1,15 +1,23 @@
 import { useState } from "react"
 import Button from "./ui/Button"
 import Input from "./ui/Input"
+import Loader from "./ui/Loader"
 import { useToast } from "./ui/Toast"
 
 export default function LoginForm({ role, setRole }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [loading, setLoading] = useState(false)
     const showToast = useToast()
 
     function handleSignIn() {
-        showToast(`Signed in as ${role}!`, "success")
+        setLoading(true)
+
+        // simulating an API call — replace with real backend call later
+        setTimeout(() => {
+            setLoading(false)
+            showToast(`Signed in as ${role}!`, "success")
+        }, 1500)
     }
 
     return (
@@ -55,9 +63,15 @@ export default function LoginForm({ role, setRole }) {
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
-                    <Button type="button" variant="primary" size="lg" className="w-full mt-2" onClick={handleSignIn}>
-                        Sign-in
-                    </Button>
+                    {loading ? (
+                        <div className="py-3">
+                            <Loader size="sm" />
+                        </div>
+                    ) : (
+                        <Button type="button" variant="primary" size="lg" className="w-full mt-2" onClick={handleSignIn}>
+                            Sign-in
+                        </Button>
+                    )}
                 </div>
 
                 <div className="w-full text-[#c7aa84] font-sans flex flex-col justify-center items-center pt-8">

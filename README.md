@@ -37,7 +37,52 @@ shilp-setu/
 │   └── src/
 │       └── App.jsx
 ├── backend/           # Node.js + Express server
+│   └── data/
+│   |   └── store.js
+│   └── middleware/
+│   |   └── errorHandler.js
+│   └── routes/
+│   |   └── inquiries.js
+│   |   └── products.js
 │   └── index.js
+│   └── server.js
 ├── .gitignore
 └── README.md
 ```
+
+## How to run backend locally
+
+1. Navigate to the backend folder:
+```bash
+   cd backend
+```
+
+2. Install dependencies:
+```bash
+   npm install
+```
+
+3. Create a `.env` file based on `.env.example`:
+```bash
+   cp .env.example .env
+```
+
+4. Start the development server:
+```bash
+   npm run dev
+```
+
+Server runs on `http://localhost:5001`
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/products | Get all products |
+| GET | /api/products/:id | Get single product |
+| GET | /api/products/search?q= | Search products |
+| POST | /api/products | Create new product |
+| PUT | /api/products/:id | Update product |
+| DELETE | /api/products/:id | Delete product |
+| GET | /api/inquiries | Get all inquiries |
+| POST | /api/inquiries | Submit inquiry |

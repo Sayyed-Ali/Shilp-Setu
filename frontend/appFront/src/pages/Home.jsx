@@ -1,21 +1,33 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Card from '../components/Card'
-import Modal from '../components/ui/Modal'
-
-const products = [
-    { emoji: "🧣", bg: "bg-orange-100", region: "Kashmir", title: "Hand-woven Woolen Shawl", material: "Wool", size: "180×90 cm", price: "₹1,200", moq: 50, ai: true },
-    { emoji: "🎍", bg: "bg-green-100", region: "Manipur", title: "Bamboo Table Runner", material: "Bamboo", size: "120×30 cm", price: "₹450", moq: 100, ai: true },
-    { emoji: "🪵", bg: "bg-purple-100", region: "Karnataka", title: "Rosewood Jewellery Box", material: "Rosewood", size: "20×15 cm", price: "₹2,800", moq: 20, ai: false },
-    { emoji: "🧵", bg: "bg-pink-100", region: "Gujarat", title: "Bandhani Dupatta", material: "Cotton Silk", size: "230 cm", price: "₹980", moq: 60, ai: true },
-    { emoji: "🏺", bg: "bg-blue-100", region: "West Bengal", title: "Terracotta Decorative Pot", material: "Clay", size: "25 cm", price: "₹320", moq: 200, ai: false },
-    { emoji: "🎨", bg: "bg-yellow-100", region: "Odisha", title: "Pattachitra Painting", material: "Canvas", size: "40×30 cm", price: "₹1,500", moq: 30, ai: true },
-]
+import { Modal, Loader, useToast } from '../components/ui/index'
+import { data } from "react-router-dom"
 
 function Home() {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
     const [selectedProduct, setSelectedProduct] = useState(null)
+    const showToast = useToast()
+
+    useEffect(() => {
+        fetch("http://localhost:5001/api/products")
+            .then(res => {
+                if (!res.ok) throw new Error("Failed to fetch products")
+                return res.json()
+            })
+            .then(data => {
+                setProducts(data.data)
+                setLoading(false)
+            })
+            .catch(err => {
+                console.error(err)
+                showToast("Failed to load products", "error")
+                setLoading(false)
+            })
+    }, [])
 
     return (
         <>
@@ -28,13 +40,19 @@ function Home() {
                         Browse the <span className="italic text-[#e8a020]">collection</span>
                     </h2>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {products.map((p, i) => (
-                            <div key={i} onClick={() => setSelectedProduct(p)}>
-                                <Card {...p} />
-                            </div>
-                        ))}
-                    </div>
+                    {loading ? (
+                        <div className="flex justify-center py-20">
+                            <Loader size="lg" text="Loading products..." />
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {products.map((p) => (
+                                <div key={p.id} onClick={() => setSelectedProduct(p)}>
+                                    <Card {...p} />
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <Modal

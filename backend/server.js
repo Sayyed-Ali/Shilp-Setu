@@ -2,9 +2,14 @@ const express = require("express")
 const cors = require("cors")
 const dotenv = require("dotenv")
 const errorHandler = require("./middleware/errorHandler")
+const connectDB = require("./config/db")
+
 
 // load env variables from .env file
 dotenv.config()
+
+// connect to MongoDB
+connectDB()
 
 const app = express()
 const PORT = process.env.PORT
@@ -18,15 +23,11 @@ app.use(cors({
 
 app.use(express.json()) // parse incoming JSON request bodies
 
-
-app.use((req, res, next) => {
-    console.log(req.method, req.url);
-    next();
-});
-
 //routes
 app.use("/api/products", require("./routes/products"))
 app.use("/api/inquiries", require("./routes/inquiries"))
+app.use("/api/seed", require("./routes/seed"))
+
 
 // health check endpoint — useful to test if server is alive
 app.get("/", (req, res) => {

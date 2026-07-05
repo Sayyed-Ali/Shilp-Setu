@@ -30,22 +30,57 @@ Shilp Setu acts as a digital bridge. An NGO coordinator or craft alliance admin 
 | Auth | JWT |
 | Deployment | Vercel (frontend) + Render (backend) |
 
+## Database
+
+**Choice:** MongoDB Atlas (cloud-hosted NoSQL database)
+
+**Why MongoDB:** Shilp Setu's product data has flexible fields (different crafts have different attributes), making a document-based NoSQL database a natural fit over a rigid relational schema. MongoDB Atlas offers a generous free tier suitable for this project.
+
+### Schema Diagram
+
+![Schema Diagram](./backend/schema.png)
+
+### Entities
+
+**Product** — represents a handcraft listing uploaded by an admin/coordinator
+- Fields: title, region, material, size, price, moq, category, ai (boolean), emoji, bg, timestamps
+
+**Inquiry** — represents a bulk purchase inquiry from an institutional buyer
+- Fields: buyerName, company, productId (ref to Product), quantity, contactEmail, message, status (New/Contacted/Confirmed), timestamps
+
+### Set up the database
+
+1. Create a free MongoDB Atlas account at mongodb.com/cloud/atlas
+2. Create an M0 free cluster
+3. Add your IP to Network Access
+4. Create a database user
+5. Get the connection string and add it to your `.env` as `MONGO_URI`
+6. Run the backend server — it connects automatically on start
+7. Seed initial data: `POST http://localhost:5000/api/seed`
+
+
 ## Project Structure
 ```
 shilp-setu/
 ├── frontend/          # React + Vite client
 │   └── src/
 │       └── App.jsx
-├── backend/           # Node.js + Express server
-│   └── data/
-│   |   └── store.js
-│   └── middleware/
-│   |   └── errorHandler.js
-│   └── routes/
-│   |   └── inquiries.js
-│   |   └── products.js
-│   └── index.js
-│   └── server.js
+├── backend/               # Node.js + Express server
+│   ├── config/
+│   │   └── db.js
+│   ├── models/
+│   │   ├── Product.js
+│   │   └── Inquiry.js
+│   ├── routes/
+│   │   ├── products.js
+│   │   ├── inquiries.js
+│   │   └── seed.js
+│   ├── middleware/
+│   │   └── errorHandler.js
+│   ├── server.js
+│   ├── .env
+│   ├── .env.example
+│   └── package.json
 ├── .gitignore
 └── README.md
 ```

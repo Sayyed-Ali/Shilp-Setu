@@ -62,12 +62,22 @@ function Home() {
                 >
                     {selectedProduct && (
                         <div>
-                            <div className={`h-40 ${selectedProduct.bg} rounded-xl flex items-center justify-center text-5xl mb-4`}>
-                                {selectedProduct.emoji}
+                            <div className="h-48 rounded-xl overflow-hidden mb-4 bg-[#f5f0e8]">
+                                {selectedProduct.image ? (
+                                    <img
+                                        src={selectedProduct.image}
+                                        alt={selectedProduct.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-[#b5a898] text-sm">
+                                        No image
+                                    </div>
+                                )}
                             </div>
                             <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Region: {selectedProduct.region}</p>
                             <p className="text-[#6b5f4e] dark:text-gray-300 mb-2">Material: {selectedProduct.material}</p>
-                            <p className="font-serif font-bold text-xl text-[#2c3e6b]">{selectedProduct.price} / pc</p>
+                            <p className="font-serif font-bold text-xl text-[#2c3e6b] dark:text-indigo-300">₹{selectedProduct.price} / pc</p>
                         </div>
                     )}
                 </Modal>

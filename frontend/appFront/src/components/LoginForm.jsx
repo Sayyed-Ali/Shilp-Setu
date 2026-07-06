@@ -1,81 +1,85 @@
 import { useState } from "react"
-import { Button, Input, Loader, useToast } from "../components/ui"
+import { Button, Input, Loader } from "./ui"
 
-export default function LoginForm({ role, setRole }) {
+export default function LoginForm({ role, setRole, onLogin }) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
-    const showToast = useToast()
+    const [error, setError] = useState("")
 
-    function handleSignIn() {
+    async function handleSignIn() {
+        setError("")
         setLoading(true)
-
-        // simulating an API call — replace with real backend call later
-        setTimeout(() => {
+        try {
+            await onLogin(email, password)
+        } catch (err) {
+            setError(err.message || "Login failed")
+        } finally {
             setLoading(false)
-            showToast(`Signed in as ${role}!`, "success")
-        }, 1500)
+        }
     }
 
     return (
-        <>
-            <div className="w-full max-w-md font-serif flex flex-col justify-center items-center m-auto px-4 py-8">
-                <div className="">
-                    <h2 className="text-5xl font-black pb-4 dark:text-white">Welcome back</h2>
-                    <p className="text-lg pb-4 font-sans font-thin dark:text-gray-400">Sign in to continue your artisan journey</p>
-                </div>
-
-                <div className="tab-row flex flex-row border border-[#c7aa84] dark:border-[#2a3552] rounded-lg w-full items-center font-sans mb-4 overflow-hidden">
-                    <Button
-                        variant={role === "artisan" ? "primary" : "ghost"}
-                        className="w-1/2 rounded-none"
-                        onClick={() => setRole("artisan")}
-                    >
-                        Artisan Login
-                    </Button>
-
-                    <Button
-                        variant={role === "buyer" ? "primary" : "ghost"}
-                        className="w-1/2 rounded-none"
-                        onClick={() => setRole("buyer")}
-                    >
-                        Buyer Login
-                    </Button>
-                </div>
-
-                <div className="form font-sans w-full">
-                    <Input
-                        label="Email address"
-                        type="email"
-                        placeholder="you@example.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-
-                    <Input
-                        label="Password"
-                        type="password"
-                        placeholder="••••••••"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-
-                    {loading ? (
-                        <div className="py-3">
-                            <Loader size="sm" />
-                        </div>
-                    ) : (
-                        <Button type="button" variant="primary" size="lg" className="w-full mt-2" onClick={handleSignIn}>
-                            Sign-in
-                        </Button>
-                    )}
-                </div>
-
-                <div className="w-full text-[#c7aa84] dark:text-gray-500 font-sans flex flex-col justify-center items-center pt-8">
-                    <span className="text-[#c7aa84] dark:text-gray-500">or</span>
-                    <span>Don't have an account?&nbsp;<a href="" className="text-[#2c3e6b]">Request access</a></span>
-                </div>
+        <div className="w-full max-w-md font-serif flex flex-col justify-center items-center m-auto px-4 py-8">
+            <div>
+                <h2 className="text-5xl font-black pb-4 dark:text-white">Welcome back</h2>
+                <p className="text-lg pb-4 font-sans font-thin dark:text-gray-400">Sign in to continue your artisan journey</p>
             </div>
-        </>
+
+            <div className="tab-row flex flex-row border border-[#c7aa84] dark:border-[#2a3552] rounded-lg w-full items-center font-sans mb-4 overflow-hidden">
+                <Button
+                    variant={role === "artisan" ? "primary" : "ghost"}
+                    className="w-1/2 rounded-none"
+                    onClick={() => setRole("artisan")}
+                >
+                    Admin Login
+                </Button>
+                <Button
+                    variant={role === "buyer" ? "primary" : "ghost"}
+                    className="w-1/2 rounded-none"
+                    onClick={() => setRole("buyer")}
+                >
+                    Buyer Login
+                </Button>
+            </div>
+
+            <div className="form font-sans w-full">
+                {error && (
+                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm px-4 py-3 rounded-lg mb-4">
+                        {error}
+                    </div>
+                )}
+
+                <Input
+                    label="Email address"
+                    type="email"
+                    placeholder="admin@shilpsetu.in"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                    label="Password"
+                    type="password"
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+
+                {loading ? (
+                    <div className="py-3 flex justify-center">
+                        <Loader size="sm" />
+                    </div>
+                ) : (
+                    <Button type="button" variant="primary" size="lg" className="w-full mt-2" onClick={handleSignIn}>
+                        Sign in
+                    </Button>
+                )}
+            </div>
+
+            <div className="w-full text-[#c7aa84] dark:text-gray-500 font-sans flex flex-col justify-center items-center pt-8">
+                <span>or</span>
+                <span>Don't have an account?&nbsp;<a href="#" className="text-[#2c3e6b] dark:text-indigo-400">Request access</a></span>
+            </div>
+        </div>
     )
 }

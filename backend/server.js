@@ -27,6 +27,7 @@ app.use(express.json()) // parse incoming JSON request bodies
 app.use("/api/products", require("./routes/products"))
 app.use("/api/inquiries", require("./routes/inquiries"))
 app.use("/api/seed", require("./routes/seed"))
+app.use("/api/auth", require("./routes/auth"))
 
 
 // health check endpoint — useful to test if server is alive

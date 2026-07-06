@@ -24,15 +24,18 @@ export default function Navbar() {
                     {/* Center links — hidden on mobile */}
                     <ul className="hidden lg:flex items-center gap-8 ml-10 list-none text-xl">
                         <li><a href="/" className="text-[#6B5F4E] hover:text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium transition-colors">Catalog</a></li>
-                        <li><a href="/dashboard" className="text-[#6B5F4E] hover:text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium transition-colors">How it Works</a></li>
                         <li><a href="/about" className="text-[#6B5F4E] hover:text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium transition-colors">About</a></li>
                     </ul>
 
                     {/* Right side */}
                     <div className="flex items-center gap-1 md:gap-4 ml-auto mr-4">
                         <div className='hidden lg:flex items-center gap-2'>
-                            <a href="/login" className='border-2 border-[#ddd3c4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white rounded-lg p-2 mr-3 px-6'>Login</a>
-                            <a href="/catalog" className=' border-2 rounded-lg p-2 mr-3 bg-[#2c3e6b] text-white px-6'>Browse Crafts</a>
+                            <a href="/login" className='border-2 border-[#ddd3c4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white rounded-lg p-2 px-5 hover:border-[#2c3e6b] transition-colors'>
+                                Admin Portal
+                            </a>
+                            <a href="/" className='border-2 rounded-lg p-2 px-5 bg-[#2c3e6b] text-white hover:bg-[#1a2645] transition-colors'>
+                                Browse Catalog
+                            </a>
                         </div>
 
                         {/* Notification icon */}
@@ -70,11 +73,10 @@ export default function Navbar() {
                     <div className="lg:hidden bg-[#FDFAF5] dark:bg-[#0f1626] border-t border-[#DDD3C4] dark:border-[#1f2a45] px-6 py-4 flex flex-col gap-4 text-lg">
                         <a href="/" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>Catalog</a>
                         <a href="/about" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>For Buyers</a>
-                        <a href="/dashboard" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>How it Works</a>
                         <a href="/about" className="text-[#1E1A14] dark:text-gray-300 dark:hover:text-white font-medium py-2 border-b border-[#EFE8DA] dark:border-[#1f2a45]" onClick={() => setMenuOpen(false)}>About</a>
                         <div className="flex flex-col gap-2 pt-2">
-                            <a href="/login" className="border-2 border-[#DDD3C4] dark:border-[#2a3552] text-[#1e1a14] dark:text-white rounded-lg px-5 py-2.5 font-semibold text-center">Admin Login</a>
-                            <a href="/catalog" className="bg-[#2C3E6B] text-white rounded-lg px-5 py-2.5 font-semibold text-center">Browse Crafts</a>
+                            <a href="/login" className="..." onClick={() => setMenuOpen(false)}>Admin Portal</a>
+                            <a href="/" className="bg-[#2C3E6B] text-white rounded-lg px-5 py-2.5 font-semibold text-center" onClick={() => setMenuOpen(false)}>Browse Catalog</a>
                         </div>
                     </div>
                 )}

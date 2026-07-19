@@ -3,7 +3,7 @@ const cors = require("cors")
 const dotenv = require("dotenv")
 const errorHandler = require("./middleware/errorHandler")
 const connectDB = require("./config/db")
-
+const passport = require("./config/passport")
 
 // load env variables from .env file
 dotenv.config()
@@ -22,12 +22,14 @@ app.use(cors({
 }))
 
 app.use(express.json()) // parse incoming JSON request bodies
+app.use(passport.initialize())
 
 //routes
 app.use("/api/products", require("./routes/products"))
 app.use("/api/inquiries", require("./routes/inquiries"))
 app.use("/api/seed", require("./routes/seed"))
 app.use("/api/auth", require("./routes/auth"))
+app.use("/api/auth", require("./routes/oauth")) // google oauth routes
 
 
 // health check endpoint — useful to test if server is alive

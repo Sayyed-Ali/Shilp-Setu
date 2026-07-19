@@ -51,7 +51,7 @@ Also generate a Hindi translation of the same description (2 paragraphs, same st
 Return ONLY a valid JSON object with exactly this structure, no markdown, no extra text:
 {"english": "English description here", "hindi": "Hindi description here"}`
 
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" })
         const result = await model.generateContent(prompt)
         const responseText = result.response.text()
 

@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import AuthCallback from './pages/AuthCallback'
 
 function App() {
   return (
@@ -20,11 +21,8 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/login' element={<Login />} />
-              <Route path='/dashboard' element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              } />
+              <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path='/auth/callback' element={<AuthCallback />} />
             </Routes>
           </BrowserRouter>
         </ToastProvider>

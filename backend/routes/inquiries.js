@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const Inquiry = require("../models/Inquiry")
+const { protect, adminOnly } = require("../middleware/auth")
 
 // GET /api/inquiries — get all inquiries
 router.get("/", async (req, res, next) => {
@@ -18,7 +19,7 @@ router.get("/", async (req, res, next) => {
 })
 
 // POST /api/inquiries — submit new inquiry
-router.post("/", async (req, res, next) => {
+router.post("/", protect, async (req, res, next) => {
     try {
         const inquiry = await Inquiry.create(req.body)
 

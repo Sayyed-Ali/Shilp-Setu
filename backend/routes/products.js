@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const Product = require("../models/Product")
+const { protect, adminOnly } = require("../middleware/auth")
 
 // GET /api/products - get all products
 router.get("/", async (req, res, next) => {
@@ -70,7 +71,7 @@ router.get("/:id", async (req, res, next) => {
 
 
 // POST api/products - create new product
-router.post("/", async (req, res, next) => {
+router.post("/", protect, async (req, res, next) => {
     try {
         const product = await Product.create(req.body)
 
@@ -93,7 +94,7 @@ router.post("/", async (req, res, next) => {
 })
 
 // PUT /api/products/:id — update product
-router.put("/:id", async (req, res, next) => {
+router.put("/:id", protect, async (req, res, next) => {
     try {
         const product = await Product.findByIdAndUpdate(
             req.params.id,
@@ -122,7 +123,7 @@ router.put("/:id", async (req, res, next) => {
 })
 
 // DELETE /api/products/:id — delete product
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", protect, async (req, res, next) => {
     try {
         const product = await Product.findByIdAndDelete(req.params.id)
 

@@ -13,6 +13,7 @@ const sidebarItems = [
     { icon: "", label: "Inquiries", badge: 4 },
     { icon: "", label: "AI Generator" },
     { icon: "", label: "Settings" },
+    { icon: "", label: "AI Generator", path: "/ai-generator" },
 ]
 
 function Dashboard() {

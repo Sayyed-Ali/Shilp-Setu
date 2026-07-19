@@ -4,6 +4,7 @@ import { ToastProvider } from './components/ui/Toast'
 import { ThemeProvider } from './context/ThemeContext'
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import AIGenerator from './pages/AIGenerator'
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -23,6 +24,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path='/auth/callback' element={<AuthCallback />} />
+              <Route path='/ai-generator' element={<ProtectedRoute><AIGenerator /></ProtectedRoute>} />
             </Routes>
           </BrowserRouter>
         </ToastProvider>

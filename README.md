@@ -56,7 +56,7 @@ Shilp Setu acts as a digital bridge. An NGO coordinator or craft alliance admin 
 4. Create a database user
 5. Get the connection string and add it to your `.env` as `MONGO_URI`
 6. Run the backend server — it connects automatically on start
-7. Seed initial data: `POST http://localhost:5000/api/seed`
+7. Seed initial data: `POST http://localhost:5001/api/seed`
 
 
 ## Project Structure

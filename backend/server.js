@@ -31,6 +31,7 @@ app.use("/api/inquiries", require("./routes/inquiries"))
 app.use("/api/seed", require("./routes/seed"))
 app.use("/api/auth", require("./routes/auth"))
 app.use("/api/auth", require("./routes/oauth")) // google oauth routes
+app.use("/api/ai", require("./routes/ai"))
 
 
 // health check endpoint — useful to test if server is alive
